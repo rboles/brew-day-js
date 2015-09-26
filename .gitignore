@@ -1,0 +1,34 @@
+# IntelliJ
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Eclipse
+.settings
+
+# Emacs
+*~
+
+# Vim
+*.swp
+**/*.swp
+
+# Output Folders
+data/
+target/
+dist/
+.sass-cache/
+
+# Log Files
+*.log
+
+# MacOSX
+.DS_Store
+/.project
+
+bower_components/
+node_modules/
+.tmp
+srv
+

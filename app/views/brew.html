@@ -1,0 +1,92 @@
+<div class="brew-day">
+  <div class="row marketing">
+    <h4>Let's Make a Beer!</h4>
+
+    <form name="brewDayForm" class="form-horizontal">
+      <table cellpadding="2" cellspacing="2">
+        <tr>
+          <td><label class="control-label" for="og">Original gravity</label></td>
+          <td><input ng-model="og" class="input-sm" style="width:80px;" id="og" ng-blur="onBlurOriginalGravity()" focus required /></td>
+        </tr>
+        <tr>
+          <td><label class="control-label" for="poundsGrain">Pounds of grain</label></td>
+          <td><input ng-model="poundsGrain" class="input-sm" style="width:80px;" id="poundsGrain" ng-blur="onBlurPoundsGrain()" required /></td>
+        </tr>
+        <tr>
+          <td><label class="control-label" for="mashTemperature">Mash temperature</label></td>
+          <td><input ng-model="mashTemperature" class="input-sm" style="width:80px;" id="mashTemperature" ng-blur="onBlurMashTemperature()" required /></td>
+        </tr>
+        <tr>
+          <td><label class="control-label" for="hasStirPlate">Stir Plate</label></td>
+          <td><input type="checkbox" ng-model="hasStirPlate" class="checkbox-inline" id="hasStirPlate" /></td>
+        </tr>
+      </table>
+    </form>
+  </div>
+  <div class="row">
+    <h4>Yeast Starter</h4>
+    <p>
+      Original gravity:
+      <span highlighter="{{ og }}">{{getOg()}} ({{getDegreesPlato()}} degrees Plato)</span>
+    </p>
+    <ul>
+      <li>Starter volume: {{getStarterVolume()}} liters</li>
+      <li>Starter DME: {{getStarterDme()}} grams</li>
+    </ul>
+    <ol>
+      <li>
+        Add {{getStarterDme()}} grams DME and a pinch of
+        yeast nutrient to boiling vessel
+      </li>
+      <li>
+        Fill vessel to {{getStarterVolume()}} liters. Boil gently for 15 minutes
+      </li>
+      <li>
+        Let cool to 70 dF and pitch yeast
+      </li>
+      <li ng-if="hasStirPlate">
+        Add stir bar, cover flask opening with clean tin foil and aerate on
+        stir plate for 18 to 24 hours
+      </li>
+      <li>
+        When the starter is ready, put it in the fridge for 24 hours to let
+        the yeast rest and settle.
+      </li>
+      <li>
+        Pour off extra liquid above yeast cake before pitching.
+      </li>
+    </ol>
+    <h4>Brew Water</h4>
+    <p>
+      Pounds of grain: <span class="highlight">{{getPoundsGrain()}}</span>
+    </p>
+    <p>
+      Mash temperature: <span class="highlight">{{mashTemperature}}</span>
+    </p>
+    <ul>
+      <li>Strike water ({{getStrikeWaterTemperature()}} dF): {{getStrikeWaterVolume()}} gallons</li>
+      <li>Pre-lauter (180 dF): {{getPreLauterVolume()}} gallons</li>
+      <li>Sparge water (180 dF): {{getSpargeWaterVolume()}} gallons</li>
+    </ul>
+    <ol>
+      <li>
+        Heat {{getStrikeWaterVolume()}} gallons of water
+        to {{getStrikeWaterTemperature()}} dF. Pour into mash tun.
+      </li>
+      <li>
+        Add grain, stir and cover. Mash for 60 to 90 minutes.
+      </li>
+      <li>
+        Heat {{getPreLauterVolume()}} gallons water to 180 dF.
+        Add to mash, stir, wait 20 minutes, vorlauf, drain.
+      </li>
+      <li>
+        Heat {{getSpargeWaterVolume()}} gallons water to 180 dF.
+        Add to mash, stir, wait 20 minutes, vorlauf, drain.
+      </li>
+      <li>
+        Boil kettle should contain {{getBoilVolume()}} gallons liquor.
+      </li>
+    </ol>
+  </div>
+</div>
